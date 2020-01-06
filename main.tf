@@ -14,6 +14,6 @@ resource "aws_efs_mount_target" "pscloud-efs-mount-target" {
 
   file_system_id  = aws_efs_file_system.pscloud-efs.id
   subnet_id       = element(var.pscloud_subnets_ids, count.index).id
-  security_groups = [ var.pscloud_sec_gr_ids ]
+  security_groups = var.pscloud_sec_gr_ids
 }
 
