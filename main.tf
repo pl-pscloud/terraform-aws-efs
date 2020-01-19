@@ -1,7 +1,7 @@
 resource "aws_efs_file_system" "pscloud-efs" {
 
   lifecycle_policy {
-    transition_to_ia = "AFTER_14_DAYS"
+    transition_to_ia = var.pscloud_lifecycle_policy
   }
 
   tags = {
