@@ -1,4 +1,6 @@
 resource "aws_efs_file_system" "pscloud-efs" {
+  encrypted             = var.pscloud_encrypted
+  kms_key_id            = var.pscloud_kms_key_arn
 
   lifecycle_policy {
     transition_to_ia = var.pscloud_lifecycle_policy
@@ -6,6 +8,7 @@ resource "aws_efs_file_system" "pscloud-efs" {
 
   tags = {
     Name = "${var.pscloud_company}_nfs_for_${var.pscloud_purpose}_${var.pscloud_env}"
+    Project = var.pscloud_project
   }
 }
 
