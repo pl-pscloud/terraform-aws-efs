@@ -3,6 +3,7 @@ variable "pscloud_company"            {}
 
 variable "pscloud_encrypted"          { default = false }
 variable "pscloud_kms_key_arn"        { default = "" }
+
 variable "pscloud_performance_mode"   { default = "generalPurpose" } //maxIO
 variable "pscloud_throughput_mode"    { default = "bursting" }  //provisioned. When using provisioned, also set provisioned_throughput_in_mibps.
 variable "pscloud_throughput_mibps"   { default = 0 } //2-1024

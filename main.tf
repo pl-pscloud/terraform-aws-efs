@@ -2,14 +2,12 @@ resource "aws_efs_file_system" "pscloud-efs" {
   encrypted             = var.pscloud_encrypted
   kms_key_id            = var.pscloud_kms_key_arn
 
-  performance_mode      = var.pscloud_performance_mode
-
+  performance_mode                  = var.pscloud_performance_mode
   throughput_mode                   = var.pscloud_throughput_mode
   provisioned_throughput_in_mibps   = var.pscloud_throughput_mibps
 
-
-lifecycle_policy {
-    transition_to_ia = var.pscloud_lifecycle_policy
+  lifecycle_policy {
+      transition_to_ia = var.pscloud_lifecycle_policy
   }
 
   tags = {
